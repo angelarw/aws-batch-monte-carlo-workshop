@@ -1,6 +1,10 @@
 ## Module 6: Create an IAM role for the container 
 
-When we use AWS batch to schedule and run multiple containers in parallel, they each need to be able to access S3 to store the simulation results. To grant permission for the containers to access S3 securely, the best way to achieve this is creating an IAM role that the containers will use. With IAM roles, temporary security credentials are created dynamically that are only usable by the entities you specify. 
+Remember the architecture?
+
+<img src="images/architecture.png" width="70%" />
+
+When we use AWS batch to schedule and run multiple containers in parallel, each container needs to be able to access S3 to store the simulation results. To grant permission for the containers to access S3 securely, the best way to achieve this is creating an [**IAM role**](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that the containers will use. With IAM roles, temporary security credentials are created dynamically that are only usable by the entities you specify. 
 
 To create this IAM role: 
 
