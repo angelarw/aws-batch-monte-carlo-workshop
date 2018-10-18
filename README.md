@@ -13,4 +13,6 @@ A forked version of [ec2-spot-montecarlo-workshop](https://github.com/aws-sample
 * [Module 5: Push the docker container to Amazon ECR](./Module5.md)
 * [Module 6: Create an IAM role for the container](./Module6.md)
 * [Module 7: Create AWS Batch job](./Module7.md)
-* [cleanup](./cleanup.md)
+* [Module 8: Submit Batch job with retries](./Module8.md)
+* [Extra Credit](ExtraCredit.md) 
+* [Cleanup](./cleanup.md)

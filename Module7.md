@@ -77,4 +77,17 @@ In this section, we will use the AWS batch first run wizard to walk through:
 
 1. First time the jobs are run will take a little more time (several few minutes) before the jobs go into a **RUNNING** state, because AWS Batch needs to spin up some EC2 instances to run your containers. Using a Managed compute environment with AWS Batch mean it will automatically scale up and down the EC2 instances that will be used to run your containers. 
 
+1. Click on the running/succeeded job to view the details. Note that because we submitted an array job with size=2, you can see batch scheduled 2 and run 2 containers: 
 
+	<img src="images/succeeded-array-job.png" width="90%"/>
+
+	By clicking into the job IDs, you can see more details of the job run. You can find the execution logs, start and end time, etc. in the **Attempts** section. 
+	
+	<img src="images/job-run-details.png" width="70%"/>
+
+
+ Occasionally, your batch job might fail. For example, in the case of this simulation workshop, you may see the jobs fail intermittently due to the code temporarily unable to download the historical stock data from yahoo finance. (Usually, the execution logs can help you troubleshoot)
+
+ Thankfully, AWS batch provides an easy mechanism to enable job retries! 
+ 
+ Go to [**next module**](./Module8.md) to learn how to make your batch jobs more resilient to failures! 
