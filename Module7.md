@@ -1,12 +1,13 @@
-## Module 7: Create AWS Batch job 
+# Module 7: Create AWS Batch job 
 
-In this section, we will use the AWS batch first run wizard to walk through to set up:
+In this section, we will use the AWS batch first run wizard to walk through:
 
-* A job queue
-* A managed compute environment (infrastructure that containers will run on)
-* A job definition 
+* Create a job queue
+* Create a managed compute environment (infrastructure that containers will run on)
+* Create a job definition 
+* Submit batch job
 
-
+## Instructions
 
 1. Click [here](https://us-east-2.console.aws.amazon.com/batch/home?region=us-east-2#/wizard) to go to the AWS Batch wizard 
 
@@ -73,4 +74,7 @@ In this section, we will use the AWS batch first run wizard to walk through to s
 
 	
 1. Go to **Dashboard** to see your job getting run. 
+
+1. First time the jobs are run will take a little more time (several few minutes) before the jobs go into a **RUNNING** state, because AWS Batch needs to spin up some EC2 instances to run your containers. Using a Managed compute environment with AWS Batch mean it will automatically scale up and down the EC2 instances that will be used to run your containers. 
+
 
