@@ -17,7 +17,14 @@ Amazon Elastic Container Registry (ECR) is a fully-managed Docker container regi
 
 1. Now you are logged in, use the provided commands to 
 	
-	* tag your image to prepare it to be pushed (note: change the default command to match the image tag you built in previous steps) 
+	* tag your image to prepare it to be pushed 
+		
+		**note: change the default command from the console to match the image tag** `monte-carlo-simulator:latest` **you built in previous steps**. e.g. 
+		
+		```
+		docker tag monte-carlo-simulator:latest <account-number>.dkr.ecr.us-east-2.amazonaws.com/<your-username>-monte-carlo-simulator
+		```
+	 
 	
 	* push the image to ECR 
 
