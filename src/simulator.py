@@ -12,7 +12,7 @@ This worker script launches the Monte-Carlo simulations.
 All input parameters have defaults, please see 'parser.add_argument' for details or simply append -h at the end of the execution line to
 see input parameter details.
 
-e.g. python worker.py -h
+e.g. python simulator.py -h
 
 Output:
 -------
@@ -25,10 +25,10 @@ portfolioRiskAssessment.csv - returns the risk value of multiple-socks portfolio
 Sample executions:
 ------------------
 Run simulation with default parameters:
-python worker.py
+python simulator.py
 
 Specify 1,000,000 simulations to execute:
-python worker.py --iterations 1000000
+python simulator.py --iterations 1000000
 '''
 
 import pandas as pd
@@ -36,7 +36,7 @@ from pandas_datareader import data as pdr
 import numpy as np
 import datetime, time
 from math import sqrt
-from scipy.stats import norm
+# from scipy.stats import norm
 import fix_yahoo_finance as yf
 import boto3
 import uuid
@@ -58,7 +58,7 @@ def saveToS3(bucket_name, filename, STOCK):
 
 
 def setup_cmd_parser():
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = argparse.ArgumentParser(description='Running Monte Carlo Simulations for stock purchases.')
     parser.add_argument('--iterations', dest='iterations', default=100, type=int,
                         help='Number of simulated iterations default=100')
     parser.add_argument('--stock', dest='stock', default="AMZN",
@@ -92,7 +92,6 @@ def run_simulations(parser):
     #     file_prepend_str = time.strftime('%b-%d-%Y_%H%M', t)
     t = time.localtime()
     file_prepend_str = time.strftime('%b-%d-%Y_%H%M%S', t)
-    file_prepend_str += "-" + str(uuid.uuid4())
 
     # Import stock information to dataframe. ADDED 04/2018 - Fix for yahoo finance
     yf.pdr_override()
@@ -192,9 +191,9 @@ def run_simulations(parser):
 
     # Create one data frame and write to file.
     result = pd.concat([df1, df2], axis=1, join_axes=[df1.index])
-    joined_result_file = file_prepend_str + "_" + STOCK + "_MonteCarloSimResult.csv"
+    joined_result_file = file_prepend_str + "_" + STOCK + "_" + (str(uuid.uuid4()))[:6] + "_MonteCarloSimResult.csv"
     result.to_csv(joined_result_file)
-    saveToS3(s3_bucket, joined_result_file)
+    saveToS3(s3_bucket, joined_result_file, STOCK)
 
 
 if __name__ == "__main__":
