@@ -33,7 +33,13 @@ As an optional step, you can test out Cloud9's debugging features
 	Python 3.6.5
 	```
 	
-1. Now take a look at the main source code file, `src/simulator.py`
+1. Now take a look at the main source code file, `simulator.py` in the `src/` folder. 
+
+	To do this, you can use the code editor of the Cloud9 IDE. Go to the left hand **Environment** tool bar, click into the `aws-batch-monte-carlo-workshop` folder, and then into `src`
+	
+	<img src="images/open-simulator-file.png" />
+	
+
 		
 1. As you can see in the beginning of the file, multiple external libraries such as `pandas_datareader` and `numpy` are used in the code. We need to install the dependencies so we can run the code locally
 
