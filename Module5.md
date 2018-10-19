@@ -11,28 +11,16 @@ Amazon Elastic Container Registry (ECR) is a fully-managed Docker container regi
 
 	<img src="images/create-ecr-repo.png"  width="90%"/>
 	
-1. In the following screen, you will be presented many useful commands. Start with the login command, copy and paste into the Cloud9 terminal:
+1. In the following screen, you will be presented many useful commands. Follow the commands (a-d) to login to the registry, build the container, tag the container and push to the repo. 
 
-	![](images/ecr-login-shell.png)
+	![](images/ecr-commands.png)	
 
-1. Now you are logged in, use the provided commands to 
 	
-	* tag your image to prepare it to be pushed 
-		
-		**note: change the default command from the console to match the image tag** `monte-carlo-simulator:latest` **you built in previous steps**. e.g. 
-		
-		```
-		docker tag monte-carlo-simulator:latest <account-number>.dkr.ecr.us-east-2.amazonaws.com/<your-username>-monte-carlo-simulator
-		```
-	 
-	
-	* push the image to ECR 
-
-	![](images/ecr-push.png)
-	
-1. Now if you check your ECR repository, you should see the pushed docker image
+1. After the push succeeds, now if you check your ECR repository, you should see the pushed docker image
 
 	<img src="images/check-ecr-image.png" width="70%" />
+	
+1. If you need to refer back to the push commands, you can find the **View Push Commands** button in the repository console page. 
 
 ## Next step
 
