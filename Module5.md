@@ -18,7 +18,7 @@ Amazon Elastic Container Registry (ECR) is a fully-managed Docker container regi
 	
 1. After the push succeeds, now if you check your ECR repository, you should see the pushed docker image
 
-	<img src="images/check-ecr-image.png" width="70%" />
+	<img src="images/check-ecr-image.png" width="90%" />
 	
 1. If you need to refer back to the push commands, you can find the **View Push Commands** button in the repository console page. 
 

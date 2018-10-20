@@ -6,7 +6,11 @@ To build a docker container, we need to create a **Dockerfile**, a text document
 
 ## Instructions 
 
-1. Create a file in the Cloud9 IDE. Use below as the content:
+1. Create a file in the Cloud9 IDE by going to **File** --> **New File**
+
+	<img src="images/new-file.png" width="60%" />
+
+1. Paste in below as the content for the Dockerfile:
 
 	```
 	FROM python:3.6.3
@@ -16,8 +20,18 @@ To build a docker container, we need to create a **Dockerfile**, a text document
 	CMD ["python",  "simulator.py", "--iterations", "10"]
 	```
 	
+	Take a moment to review at how a simple Docker file is written: 
 	
-1. Save the file as **Dockerfile** in the `src/` folder
+	**FROM \<image>:\<tag>**  Sets the base image. Must be first instruction in Dockerfile.
+
+	**COPY \<src> \<dest>** Copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>. 
+
+	**RUN \<command>** Executes any commands in a new layer on top of the current image and commit the results.
+
+	**CMD [“exec”, “param1”, “param2”]** Sets the command to be executed when running the image.
+
+	
+1. Save the file as **Dockerfile** in the `src/` folder - **Make sure to captalize the D!**
 
 	<img src="images/save-docker-file.png"  width="50%"/>
 
@@ -75,6 +89,11 @@ To build a docker container, we need to create a **Dockerfile**, a text document
 	
 	<img src="images/docker-interactive-shell.png"  width="100%"/>
 
+	To exit out of the interactive bash, type: 
+	
+	```
+	exit
+	```
 	
 1. You may notice if try running the docker container with a s3 bucket, the run will fail: 
 
