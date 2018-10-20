@@ -38,7 +38,7 @@ As you may have noticed in the last module, occasionally, your batch job might f
 
 # Next step 
 
-You have successfully built an batch job in a Docker container that can elastically scale to your needs and automatically retries upon failures! 
+You have successfully built an batch job in a Docker container that can elastically scale to your needs and automatically retries upon failures! 
 
 There are a lot more things you can do, and head to the [extra credit](ExtraCredit.md) section for some ideas! 
 
