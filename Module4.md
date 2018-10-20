@@ -24,7 +24,7 @@ To build a docker container, we need to create a **Dockerfile**, a text document
 	
 	**FROM \<image>:\<tag>**  Sets the base image. Must be first instruction in Dockerfile.
 
-	**COPY \<src> \<dest>** Copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>. 
+	**COPY \<src> \<dest>** Copies new files or directories from \<src> and adds them to the filesystem of the container at the path \<dest>. 
 
 	**RUN \<command>** Executes any commands in a new layer on top of the current image and commit the results.
 
