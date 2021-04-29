@@ -37,7 +37,7 @@ import numpy as np
 import datetime, time
 from math import sqrt
 # from scipy.stats import norm
-import fix_yahoo_finance as yf
+import yfinance as yf
 import boto3
 import uuid
 import subprocess
@@ -190,9 +190,10 @@ def run_simulations(parser):
     df2 = pd.DataFrame(portfolio_total, columns=["portfolioTotal"])
 
     # Create one data frame and write to file.
-    result = pd.concat([df1, df2], axis=1, join_axes=[df1.index])
+    df3 = pd.concat([df1, df2], axis=1)
+    df3 = df3.reindex(df1.index)
     joined_result_file = file_prepend_str + "_" + STOCK + "_" + (str(uuid.uuid4()))[:6] + "_MonteCarloSimResult.csv"
-    result.to_csv(joined_result_file)
+    df3.to_csv(joined_result_file)
     saveToS3(s3_bucket, joined_result_file, STOCK)
 
 
